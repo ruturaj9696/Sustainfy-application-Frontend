@@ -1,5 +1,5 @@
-
 import React, { useState } from "react";
+import axios from "axios";
 
 const CrateListing = (email) => {
   const [formData, setFormData] = useState({
@@ -39,20 +39,17 @@ const CrateListing = (email) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("https://sustainfy-application.onrender.com/api/listing/createlist", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
-      if (response.ok) {
+      const response = await axios.post(
+        "https://sustainfy-application.onrender.com/api/listing/createlist",
+        formData
+      );
+      console.log(response.data);
+      if (response.status === 200) {
         console.log("Listing created successfully");
-        alert("Listing created successfully !")
-        // Optionally, you can reset the form after successful submission
+        alert("Listing created successfully !");
         setFormData({
           plantCapacity: "",
-          email:"",
+          email: "",
           siteLocation: "",
           siteAddress: "",
           siteContactNumber: "",
@@ -343,7 +340,6 @@ const CrateListing = (email) => {
                 name="inverterDatasheet"
               />
             </label>
-
 
             <div className="flex justify-center">
               <button type="submit" className="btn btn-primary">
