@@ -74,7 +74,6 @@ const CrateListing = (email) => {
           netMeteringFile: "",
           moduleDatasheet: "",
           inverterDatasheet: "",
-          userRef: "",
         });
       } else {
         console.error("Failed to create listing");
@@ -345,16 +344,6 @@ const CrateListing = (email) => {
               />
             </label>
 
-            <label className="input input-bordered flex items-center gap-2">
-              <input
-                type="text"
-                className="grow"
-                placeholder="User Reference"
-                value={formData.userRef}
-                onChange={handleChange}
-                name="userRef"
-              />
-            </label>
 
             <div className="flex justify-center">
               <button type="submit" className="btn btn-primary">
