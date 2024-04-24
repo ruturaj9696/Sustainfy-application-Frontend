@@ -78,6 +78,7 @@ const CrateListing = (email) => {
     } catch (error) {
       console.error("Error creating listing:", error);
     }
+    console.log(response.json());
   };
 
   return (

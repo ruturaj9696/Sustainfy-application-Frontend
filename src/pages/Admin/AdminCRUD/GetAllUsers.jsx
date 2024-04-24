@@ -49,7 +49,7 @@ const GetAllUsers = () => {
     e.preventDefault();
     try {
       const response = await axios.put(
-        `/api/user/updateuser/${selectedUser._id}`,
+        `https://sustainfy-application.onrender.com/api/user/updateuser/${selectedUser._id}`,
         formData
       );
       setSuccessMessage(response.data.message);
